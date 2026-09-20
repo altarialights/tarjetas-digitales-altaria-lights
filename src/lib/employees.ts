@@ -67,12 +67,12 @@ export const phoneLabel = (e: Employee) => clean(e.phoneDisplay) ?? e.phone;
 /** Abre una redacción nueva en Gmail web sin depender del protocolo `mailto:`. */
 export function emailHref(e: Employee): string {
   const params = new URLSearchParams({
-    view: "cm",
     fs: "1",
+    tf: "cm",
     to: e.email.trim(),
     su: `Hola ${e.firstName.trim()}!`,
   });
-  return `https://mail.google.com/mail/?${params.toString()}`;
+  return `https://mail.google.com/mail/u/0/?${params.toString()}`;
 }
 
 export function initials(e: Employee): string {
