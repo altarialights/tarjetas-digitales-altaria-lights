@@ -64,6 +64,13 @@ export const vcardPath = (e: Employee) => `/${e.companySlug}/${e.id}.vcf`;
 export const phoneHref = (e: Employee) => `tel:${e.phone.replace(/[^\d+]/g, "")}`;
 export const phoneLabel = (e: Employee) => clean(e.phoneDisplay) ?? e.phone;
 
+/** Abre una conversación de WhatsApp con el teléfono del empleado. */
+export function whatsappHref(e: Employee): string {
+  const phone = e.phone.replace(/\D/g, "");
+  const text = `Hola ${e.firstName.trim()}!`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+}
+
 /** Abre una redacción nueva en Gmail web sin depender del protocolo `mailto:`. */
 export function emailHref(e: Employee): string {
   const params = new URLSearchParams({

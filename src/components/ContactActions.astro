@@ -1,6 +1,6 @@
 ---
 import type { Employee } from "../data/employees";
-import { emailHref, phoneHref, vcardPath } from "../lib/employees";
+import { phoneHref, vcardPath, whatsappHref } from "../lib/employees";
 import Icon from "./Icon.astro";
 
 interface Props {
@@ -15,18 +15,16 @@ const { employee, delay = 0 } = Astro.props;
 <div class="actions">
   <div class="secondary reveal" style={`--d:${delay}ms`}>
     <a class="btn" href={phoneHref(employee)} aria-label={`Llamar a ${employee.fullName}`}>
-      <Icon name="phone" size={19} />
       <span>Llamar</span>
     </a>
     <a
       class="btn"
-      href={emailHref(employee)}
+      href={whatsappHref(employee)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Enviar un email a ${employee.fullName} (se abre en una nueva pestaña)`}
+      aria-label={`Escribir por WhatsApp a ${employee.fullName} (se abre en una nueva pestaña)`}
     >
-      <Icon name="mail" size={19} />
-      <span>Email</span>
+      <span>WhatsApp</span>
     </a>
   </div>
 

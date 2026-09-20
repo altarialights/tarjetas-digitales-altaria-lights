@@ -102,6 +102,7 @@ export const employees: Employee[] = [
         photo: "/employees/mariano-camarero.webp",
 
         companyLogo: "/companies/serveo/logo.png",
+        includeWebsiteInVCard: false,
     },
     {
         id: "jose-eugenio-del-castillo",
