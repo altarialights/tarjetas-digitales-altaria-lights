@@ -75,6 +75,35 @@ export interface Employee {
 
 export const employees: Employee[] = [
     {
+        id: "angel-c-hernandez",
+        companySlug: "serveo",
+        company: "Serveo",
+
+        firstName: "Ángel",
+        lastName: "C Hernández Alguacil",
+        fullName: "Ángel C Hernández Alguacil",
+
+        position: "Manager Obras",
+        department: "Government Centro",
+
+        phone: "+34636415306",
+        phoneDisplay: "636 41 53 06",
+
+        email: "angel.hernandezalguacil@serveo.com",
+
+        address: {
+            street: "C/ Rosalind Franklin, 58",
+            city: "Getafe",
+            postalCode: "",
+            country: "España",
+        },
+
+        photo: "/employees/angel-c-hernandez.webp",
+
+        companyLogo: "/companies/serveo/logo.png",
+        includeWebsiteInVCard: false,
+    },
+    {
         id: "mariano-camarero",
         companySlug: "serveo",
         company: "Serveo",
