@@ -83,7 +83,7 @@ export const employees: Employee[] = [
         lastName: "C Hernández Alguacil",
         fullName: "Ángel C Hernández Alguacil",
 
-        position: "Manager Obras",
+        position: "Area Manager Obras",
         department: "Government Centro",
 
         phone: "+34636415306",
