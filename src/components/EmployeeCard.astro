@@ -144,10 +144,11 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
     overflow: clip;
   }
 
-  @supports (height: 100dvh) {
+  /* svh stays fixed while Safari's browser bars collapse during scrolling. */
+  @supports (height: 100svh) {
     .card {
-      min-height: 100dvh;
-      --photo: min(clamp(7.5rem, 22dvh, 13rem), 40vw);
+      min-height: 100svh;
+      --photo: min(clamp(7.5rem, 22svh, 13rem), 40vw);
     }
   }
 
@@ -170,7 +171,6 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
     -webkit-mask: var(--mask-m) 0 0 / 100% 100% no-repeat;
     mask: var(--mask-m) 0 0 / 100% 100% no-repeat;
     transform-origin: 0 0;
-    animation: sweep 1.1s var(--ease-out-expo) both;
   }
 
   .echo {
@@ -193,6 +193,12 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
 
   .echo path:first-child { opacity: 0.32; }
   .echo path:last-child { opacity: 0.14; }
+
+  @media (hover: none) and (pointer: coarse) {
+    .echo {
+      animation: none;
+    }
+  }
 
   .echo-d { display: none; }
 
@@ -382,9 +388,9 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
       --row-min: 3rem;
     }
 
-    @supports (height: 100dvh) {
+    @supports (height: 100svh) {
       .card {
-        --photo: min(clamp(7rem, 18.5dvh, 9rem), 38vw);
+        --photo: min(clamp(7rem, 18.5svh, 9rem), 38vw);
       }
     }
 
@@ -426,9 +432,9 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
       --photo: min(clamp(9rem, 21vh, 15rem), 40vw);
     }
 
-    @supports (height: 100dvh) {
+    @supports (height: 100svh) {
       .card {
-        --photo: min(clamp(9rem, 21dvh, 15rem), 40vw);
+        --photo: min(clamp(9rem, 21svh, 15rem), 40vw);
       }
     }
 
@@ -448,9 +454,9 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
       grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
     }
 
-    @supports (height: 100dvh) {
+    @supports (height: 100svh) {
       .card {
-        --photo: clamp(12rem, min(44dvh, 29vw), 30rem);
+        --photo: clamp(12rem, min(44svh, 29vw), 30rem);
       }
     }
 

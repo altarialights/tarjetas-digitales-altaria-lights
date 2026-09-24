@@ -190,6 +190,12 @@ const { employee, delay = 0 } = Astro.props;
     animation: sheen 0.9s var(--ease-out-expo) both;
   }
 
+  @media (hover: none) and (pointer: coarse) {
+    .cta:hover::after {
+      animation: none;
+    }
+  }
+
   .cta:active {
     transform: scale(0.97);
     transition-duration: 0.12s;

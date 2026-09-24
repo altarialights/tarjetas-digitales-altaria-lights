@@ -104,7 +104,7 @@ export const employees: Employee[] = [
         personalInstagram: "https://www.instagram.com/martin.altaria/",
         website: "https://altarialights.com",
 
-        photo: "/employees/martin-camarero.png",
+        photo: "/employees/martin-camarero.webp",
         companyLogo: "/companies/altaria-lights/logo.png",
         logoOnDark: true,
 

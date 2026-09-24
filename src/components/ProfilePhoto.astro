@@ -60,7 +60,6 @@ if (!photoExists && employee.photo) {
       0 0 0 var(--ring, 6px) #fff,
       0 0 0 calc(var(--ring, 6px) + var(--halo, 12px)) rgb(255 255 255 / 0.2),
       0 26px 50px -20px rgb(var(--brand-shadow-rgb) / 0.5);
-    animation: bloom 1s var(--ease-out-expo) 120ms both;
   }
 
   .frame img {
@@ -68,11 +67,20 @@ if (!photoExists && employee.photo) {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.9s var(--ease-out-expo);
   }
 
-  .photo:hover .frame img {
-    transform: scale(1.045);
+  @media (hover: hover) and (pointer: fine) {
+    .frame {
+      animation: bloom 1s var(--ease-out-expo) 120ms both;
+    }
+
+    .frame img {
+      transition: transform 0.9s var(--ease-out-expo);
+    }
+
+    .photo:hover .frame img {
+      transform: scale(1.045);
+    }
   }
 
   .monogram {

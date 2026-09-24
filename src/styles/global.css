@@ -74,6 +74,13 @@
   animation-delay: var(--d, 0ms);
 }
 
+/* Touch scrolling should not compete with a cascade of entrance animations. */
+@media (hover: none) and (pointer: coarse) {
+  .reveal {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

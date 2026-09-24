@@ -24,6 +24,12 @@ const rings = Array.from({ length: 7 }, (_, i) => 70 + i * 26);
     animation: fade 1.2s ease both;
   }
 
+  @media (hover: none) and (pointer: coarse) {
+    .bg {
+      animation: none;
+    }
+  }
+
   .rings {
     position: absolute;
     right: -42%;
