@@ -92,7 +92,7 @@ export const employees: Employee[] = [
         lastName: "Camarero Benavente",
         fullName: "Martín Camarero Benavente",
 
-        position: "Fundador",
+        position: "CEO & Founder",
 
         phone: "+34619132563",
         phoneDisplay: "+34 619 132 563",
