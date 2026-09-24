@@ -66,7 +66,7 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
     </svg>
 
     <div class="brand">
-      <div class="logo-badge reveal" style="--reveal: drop; --d: 60ms">
+      <div class:list={["logo-badge", "reveal", { "logo-badge--dark": employee.logoOnDark }]} style="--reveal: drop; --d: 60ms">
         <img
           class="logo"
           src={employee.companyLogo}
@@ -217,6 +217,10 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
     border-radius: 1rem;
     background: #fff;
     box-shadow: 0 10px 24px -12px rgb(var(--brand-shadow-rgb) / 0.55);
+  }
+
+  .logo-badge--dark {
+    background: #071731;
   }
 
   .logo {

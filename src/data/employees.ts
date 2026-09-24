@@ -46,6 +46,13 @@ export interface Employee {
     phoneDisplay?: string;
 
     email: string;
+    /** Correo personal adicional. */
+    personalEmail?: string;
+
+    linkedin?: string;
+    companyInstagram?: string;
+    personalInstagram?: string;
+    website?: string;
 
     address?: EmployeeAddress;
 
@@ -57,6 +64,8 @@ export interface Employee {
 
     /** Ruta del logo dentro de /public. */
     companyLogo: string;
+    /** Usa una placa oscura para logos con texto blanco. */
+    logoOnDark?: boolean;
 
     /** Colores corporativos opcionales. Si faltan, se usa la paleta de Serveo. */
     brand?: {
@@ -74,6 +83,43 @@ export interface Employee {
 }
 
 export const employees: Employee[] = [
+    {
+        id: "martin-camarero",
+        companySlug: "altaria-lights",
+        company: "Altaria Lights",
+
+        firstName: "Martín",
+        lastName: "Camarero Benavente",
+        fullName: "Martín Camarero Benavente",
+
+        position: "Fundador",
+
+        phone: "+34619132563",
+        phoneDisplay: "+34 619 132 563",
+
+        email: "altarialights@gmail.com",
+        personalEmail: "martincb002@gmail.com",
+        linkedin: "https://www.linkedin.com/in/martin-camarero/",
+        companyInstagram: "https://www.instagram.com/altariacards/",
+        personalInstagram: "https://www.instagram.com/martin.altaria/",
+        website: "https://altarialights.com",
+
+        photo: "/employees/martin-camarero.png",
+        companyLogo: "/companies/altaria-lights/logo.png",
+        logoOnDark: true,
+
+        brand: {
+            color: "#075cff",
+            dark: "#0044d6",
+            ink: "#00399f",
+            tint: "#dbe8ff",
+            tintSoft: "#f0f5ff",
+            highlight: "#2673ff",
+            shadow: "0 45 135",
+        },
+
+        includeWebsiteInVCard: true,
+    },
     {
         id: "angel-c-hernandez",
         companySlug: "serveo",

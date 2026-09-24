@@ -35,6 +35,7 @@ function validate(list: Employee[]): Employee[] {
     if (e.id && !SLUG.test(e.id)) errors.push(`${who}: "id" solo admite minúsculas, números y guiones (sin tildes ni espacios).`);
     if (e.companySlug && !SLUG.test(e.companySlug)) errors.push(`${who}: "companySlug" solo admite minúsculas, números y guiones.`);
     if (e.email && !EMAIL.test(e.email.trim())) errors.push(`${who}: el email "${e.email}" no es válido.`);
+    if (e.personalEmail && !EMAIL.test(e.personalEmail.trim())) errors.push(`${who}: el email personal "${e.personalEmail}" no es válido.`);
     if (e.phone && !PHONE.test(e.phone.replace(/[\s().-]/g, ""))) errors.push(`${who}: el teléfono "${e.phone}" no es válido (usa formato +34600000000).`);
     if (e.address && (!clean(e.address.street) || !clean(e.address.city))) {
       errors.push(`${who}: si hay "address", necesita al menos "street" y "city".`);
