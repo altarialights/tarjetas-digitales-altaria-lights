@@ -66,7 +66,7 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
     </svg>
 
     <div class="brand">
-      <div class:list={["logo-badge", "reveal", { "logo-badge--dark": employee.logoOnDark }]} style="--reveal: drop; --d: 60ms">
+      {employee.companyLogo && <div class:list={["logo-badge", "reveal", { "logo-badge--dark": employee.logoOnDark }]} style="--reveal: drop; --d: 60ms">
         <img
           class="logo"
           src={employee.companyLogo}
@@ -75,7 +75,7 @@ const massVars = `--mask-m:${svgMask(mass.mobile)};--mask-d:${svgMask(mass.deskt
           height="200"
           decoding="async"
         />
-      </div>
+      </div>}
       <p class="chip reveal" style="--d: 520ms">
         <Icon name="nfc" size={16} />
         <span>

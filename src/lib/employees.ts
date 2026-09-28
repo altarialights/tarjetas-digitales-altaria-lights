@@ -25,7 +25,7 @@ function validate(list: Employee[]): Employee[] {
     const who = `employees[${index}] (${e.id || "sin id"})`;
     const required: (keyof Employee)[] = [
       "id", "companySlug", "company", "firstName", "lastName",
-      "fullName", "position", "phone", "email", "companyLogo",
+      "fullName", "position", "phone", "email",
     ];
     for (const key of required) {
       if (typeof e[key] !== "string" || !clean(e[key] as string)) {

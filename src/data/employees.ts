@@ -63,7 +63,7 @@ export interface Employee {
     photo?: string;
 
     /** Ruta del logo dentro de /public. */
-    companyLogo: string;
+    companyLogo?: string;
     /** Usa una placa oscura para logos con texto blanco. */
     logoOnDark?: boolean;
 
@@ -83,6 +83,40 @@ export interface Employee {
 }
 
 export const employees: Employee[] = [
+    {
+        id: "pedro-juan-jose-lobo-pastor",
+        companySlug: "single",
+        company: "Single",
+        firstName: "Pedro Juan José",
+        lastName: "Lobo Pastor",
+        fullName: "Pedro Juan José Lobo Pastor",
+        position: "Jubilado",
+        phone: "+34625446789",
+        phoneDisplay: "625 446 789",
+        email: "jj.lobopastor@gmail.com",
+        includeWebsiteInVCard: false,
+        brand: {
+            color: "#0878d9", dark: "#075ba8", ink: "#063365",
+            tint: "#d9ecff", tintSoft: "#f1f8ff", highlight: "#21a5f4", shadow: "8 100 190",
+        },
+    },
+    {
+        id: "bonifacio-camarero-alonso",
+        companySlug: "single",
+        company: "Single",
+        firstName: "Bonifacio",
+        lastName: "Camarero Alonso",
+        fullName: "Bonifacio Camarero Alonso",
+        position: "Jubilado",
+        phone: "+34625446789",
+        phoneDisplay: "625 446 789",
+        email: "boni@curadio.es",
+        includeWebsiteInVCard: false,
+        brand: {
+            color: "#0878d9", dark: "#075ba8", ink: "#063365",
+            tint: "#d9ecff", tintSoft: "#f1f8ff", highlight: "#21a5f4", shadow: "8 100 190",
+        },
+    },
     {
         id: "martin-camarero",
         companySlug: "altaria-lights",
