@@ -100,6 +100,12 @@ export async function buildVCard(e: Employee, cardUrl?: string): Promise<string>
     lines.push(`URL:${cardUrl}`);
   }
 
+  for (const [index, link] of (e.contactLinks ?? []).entries()) {
+    const group = `item${index + 1}`;
+    lines.push(`${group}.URL:${esc(link.url)}`, `${group}.X-ABLabel:${esc(link.label)}`);
+  }
+  if (clean(e.contactNotes)) lines.push(`NOTE:${esc(e.contactNotes)}`);
+
   const photo = await photoLine(e);
   if (photo) lines.push(photo);
 

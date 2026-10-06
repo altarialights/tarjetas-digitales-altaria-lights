@@ -1,0 +1,85 @@
+---
+import type { Employee } from "../data/employees";
+import { mapsHref, phoneHref, vcardPath, whatsappHref } from "../lib/employees";
+import Icon from "./Icon.astro";
+interface Props { employee: Employee }
+const { employee: e } = Astro.props;
+const links = [
+  { icon: "website" as const, title: "Una mesa en De Zamorano", detail: "Reservar en el restaurante", href: e.website! },
+  { icon: "instagram" as const, title: "El restaurante", detail: "@de.zamorano", href: e.companyInstagram! },
+  { icon: "instagram" as const, title: "Más sobre Alfredo", detail: "@alfredo.zamorano.dp", href: e.personalInstagram! },
+  { icon: "mail" as const, title: "Correo electrónico", detail: e.email, href: `mailto:${e.email}` },
+  { icon: "pin" as const, title: "Nos vemos en Navaluenga", detail: `${e.address!.street} · Ávila`, href: mapsHref(e)! },
+];
+---
+<main class="chef-card">
+  <section class="portrait" aria-label="Alfredo de Zamorano, chef y dueño">
+    <img class="photo" src={e.photo} width="1122" height="1402" alt="Alfredo de Zamorano con su delantal de chef" fetchpriority="high" />
+    <div class="signature"><img src={e.companyLogo} alt="De Zamorano" width="310" height="120" /></div>
+    <p class="portrait-caption">DE ZAMORANO <span>NAVALUENGA · ÁVILA</span></p>
+  </section>
+  <section class="details" aria-labelledby="chef-name">
+    <header>
+      <p class="eyebrow">CHEF Y DUEÑO · DE ZAMORANO</p>
+      <h1 id="chef-name">Alfredo <span>Zamorano</span></h1>
+      <p class="intro">El contacto directo, la mejor bienvenida.</p>
+    </header>
+    <a class="save" href={vcardPath(e)} aria-describedby="save-note"><Icon name="contact" size={23} /> Guardar contacto <span aria-hidden="true">↗</span></a>
+    <p id="save-note" class="save-note">Su foto y todos sus datos, siempre a mano.</p>
+    <div class="quick-actions">
+      <a href={phoneHref(e)}><Icon name="phone" size={20} /><span>Llamar <small>{e.phoneDisplay}</small></span></a>
+      <a href={whatsappHref(e)} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={22} /><span>WhatsApp <small>Hablar con Alfredo</small></span></a>
+    </div>
+    <nav aria-label="Reservas y contacto">
+      {links.map(link => <a class="contact-link" href={link.href} target={link.href.startsWith("https:") ? "_blank" : undefined} rel={link.href.startsWith("https:") ? "noopener noreferrer" : undefined}>
+        <Icon name={link.icon} size={21} /><span><strong>{link.title}</strong><small>{link.detail}</small></span><Icon name="external" size={18} />
+      </a>)}
+    </nav>
+    <footer>DE ZAMORANO <span>Tarjeta digital por <a href="https://altarialights.com" target="_blank" rel="noopener noreferrer">Altaria Lights ↗</a></span></footer>
+  </section>
+</main>
+<style>
+  .chef-card { --gold:#dfc77d; --color-brand-ink:#dfc77d; min-height:100svh; background:#222321; color:#f4f1e8; display:grid; grid-template-columns:1fr 1fr; }
+  .portrait { position:relative; min-height:100svh; overflow:hidden; background:#30312e; }
+  .photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:55% 25%; }
+  .portrait::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 35%,transparent 65%,rgba(0,0,0,.65)); }
+  .signature { position:absolute; top:35px; left:40px; z-index:1; }
+  .signature img { width:210px; height:auto; }
+  .portrait-caption { position:absolute; bottom:34px; left:40px; right:40px; z-index:1; display:flex; justify-content:space-between; gap:12px; font-size:10px; letter-spacing:.2em; color:#fff; }
+  .details { align-self:center; padding:48px clamp(28px,5vw,85px) 25px; width:100%; max-width:760px; margin:auto; }
+  .eyebrow { color:var(--gold); font-size:10px; font-weight:600; letter-spacing:.22em; margin:0 0 20px; }
+  h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(42px,4.6vw,70px); line-height:1.02; font-weight:400; letter-spacing:-.04em; margin:0; }
+  h1 span { display:block; }
+  .intro { color:#bcbeb6; font-size:14px; margin:20px 0 28px; }
+  a { text-decoration:none; }
+  a:focus-visible { outline:2px solid var(--gold); outline-offset:5px; }
+  .save { min-height:58px; display:flex; align-items:center; gap:12px; padding:14px 20px; background:var(--gold); color:#23241f; border-radius:5px; font-size:16px; font-weight:650; transition:background .2s; }
+  .save:hover { background:#efda99; }
+  .save>span { margin-left:auto; font-size:23px; font-weight:400; }
+  .save-note { font-size:11px; color:#bcbeb6; text-align:center; margin:9px 0 22px; }
+  .quick-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:19px; }
+  .quick-actions a { min-height:65px; display:flex; gap:12px; align-items:center; padding:12px 15px; border:1px solid #515249; border-radius:5px; color:#f4f1e8; font-size:14px; }
+  .quick-actions :global(svg) { color:var(--gold); flex-shrink:0; }
+  small { display:block; font-size:11px; color:#bcbeb6; line-height:1.6; }
+  .contact-link { display:flex; align-items:center; gap:15px; padding:15px 2px; border-bottom:1px solid #40413b; color:var(--gold); min-height:68px; }
+  .contact-link>span { flex:1; min-width:0; }
+  .contact-link :global(svg) { flex-shrink:0; }
+  .contact-link strong { display:block; font-size:13px; font-weight:500; color:#f4f1e8; }
+  .contact-link small { overflow-wrap:anywhere; }
+  .contact-link:hover,.quick-actions a:hover { background:#2d2e29; }
+  footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:30px; color:#bcbeb6; font-size:9px; letter-spacing:.13em; }
+  footer span { letter-spacing:0; } footer a { color:var(--gold); }
+  @media(min-width:900px) { .portrait { position:sticky; top:0; height:100svh; } }
+  @media(max-width:899px) {
+    .chef-card { grid-template-columns:1fr; }
+    .portrait { min-height:0; height:440px; height:clamp(330px,58svh,490px); }
+    .photo { object-position:50% 23%; }
+    .portrait::after { background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 40%,#222321 100%); }
+    .signature { top:23px; left:24px; } .signature img { width:155px; }
+    .portrait-caption { display:none; }
+    .details { position:relative; margin-top:-66px; padding:0 25px 26px; max-width:540px; }
+    .eyebrow { margin-bottom:13px; font-size:9px; } h1 { font-size:49px; }
+    .intro { margin:16px 0 24px; font-size:13px; }
+  }
+  @media(max-width:359px) { .details { padding-inline:19px; } h1 { font-size:43px; } .quick-actions a { gap:8px; padding:10px; } }
+</style>

@@ -53,6 +53,9 @@ export interface Employee {
     companyInstagram?: string;
     personalInstagram?: string;
     website?: string;
+    /** Enlaces etiquetados y notas de respaldo para agendas móviles. */
+    contactLinks?: { label: string; url: string }[];
+    contactNotes?: string;
 
     address?: EmployeeAddress;
 
@@ -84,6 +87,52 @@ export interface Employee {
 
 export const employees: Employee[] = [
     {
+        id: "alfredo-zamorano",
+        companySlug: "de-zamorano",
+        company: "Restaurante De Zamorano",
+        firstName: "Alfredo",
+        lastName: "Zamorano",
+        fullName: "Alfredo Zamorano",
+        position: "Chef y dueño",
+        phone: "+34618552218",
+        phoneDisplay: "618 552 218",
+        email: "restaurantedezamorano@gmail.com",
+        website: "https://dezamorano.com/reservar",
+        companyInstagram: "https://www.instagram.com/de.zamorano/",
+        personalInstagram: "https://www.instagram.com/alfredo.zamorano.dp/",
+        address: {
+            street: "Paseo de las Acacias, 12",
+            postalCode: "05100",
+            city: "Navaluenga",
+            region: "Ávila",
+            country: "España",
+        },
+        photo: "/employees/alfredo-de-zamorano.webp",
+        companyLogo: "/companies/de-zamorano/logo.webp",
+        contactLinks: [
+            { label: "WhatsApp", url: "https://wa.me/34618552218" },
+            {
+                label: "Instagram del restaurante",
+                url: "https://www.instagram.com/de.zamorano/",
+            },
+            {
+                label: "Instagram de Alfredo",
+                url: "https://www.instagram.com/alfredo.zamorano.dp/",
+            },
+        ],
+        contactNotes:
+            "Alfredo Zamorano · Chef y dueño del Restaurante De Zamorano.\nPaseo de las Acacias, 12 · 05100 Navaluenga, Ávila, España.\nTeléfono y WhatsApp: +34 618 552 218\nCorreo: restaurantedezamorano@gmail.com\nReservas: https://dezamorano.com/reservar\nWhatsApp: https://wa.me/34618552218\nInstagram del restaurante: https://www.instagram.com/de.zamorano/\nInstagram personal: https://www.instagram.com/alfredo.zamorano.dp/",
+        brand: {
+            color: "#292925",
+            dark: "#191917",
+            ink: "#756027",
+            tint: "#e8d9aa",
+            tintSoft: "#faf7ef",
+            highlight: "#474439",
+            shadow: "25 25 23",
+        },
+    },
+    {
         id: "pedro-juan-jose-lobo-pastor",
         companySlug: "single",
         company: "Single",
@@ -97,8 +146,13 @@ export const employees: Employee[] = [
         photo: "/employees/pedro-juan-jose-lobo-pastor.png",
         includeWebsiteInVCard: false,
         brand: {
-            color: "#0878d9", dark: "#075ba8", ink: "#063365",
-            tint: "#d9ecff", tintSoft: "#f1f8ff", highlight: "#21a5f4", shadow: "8 100 190",
+            color: "#0878d9",
+            dark: "#075ba8",
+            ink: "#063365",
+            tint: "#d9ecff",
+            tintSoft: "#f1f8ff",
+            highlight: "#21a5f4",
+            shadow: "8 100 190",
         },
     },
     {
@@ -115,8 +169,13 @@ export const employees: Employee[] = [
         photo: "/employees/bonifacio-camarero-alonso.png",
         includeWebsiteInVCard: false,
         brand: {
-            color: "#0878d9", dark: "#075ba8", ink: "#063365",
-            tint: "#d9ecff", tintSoft: "#f1f8ff", highlight: "#21a5f4", shadow: "8 100 190",
+            color: "#0878d9",
+            dark: "#075ba8",
+            ink: "#063365",
+            tint: "#d9ecff",
+            tintSoft: "#f1f8ff",
+            highlight: "#21a5f4",
+            shadow: "8 100 190",
         },
     },
     {

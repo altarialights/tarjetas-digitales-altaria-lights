@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import EmployeeCard from "../../components/EmployeeCard.astro";
+import ChefCard from "../../components/ChefCard.astro";
 import type { Employee } from "../../data/employees";
 import Layout from "../../layouts/Layout.astro";
 import { allEmployees, clean } from "../../lib/employees";
@@ -29,5 +30,5 @@ const description = [employee.position, clean(employee.department), employee.com
   description={`Tarjeta de contacto digital de ${employee.fullName.trim()}. ${description}.`}
   themeColor={employee.brand?.color}
 >
-  <EmployeeCard employee={employee} />
+  {employee.companySlug === "de-zamorano" ? <ChefCard employee={employee} /> : <EmployeeCard employee={employee} />}
 </Layout>
