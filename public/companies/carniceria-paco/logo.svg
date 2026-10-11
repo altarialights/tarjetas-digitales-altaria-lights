@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Carnicería Salchichería Paco. Especialidad en ternera y cordero">
+  <rect width="800" height="800" rx="170" fill="#fff"/>
+  <path d="M0 0h355L0 540z" fill="#e40012"/>
+  <path d="M0 800V570l230 230z" fill="#e40012"/>
+  <text x="430" y="200" text-anchor="middle" fill="#092b79" font-family="Arial,sans-serif" font-size="53" font-weight="900">CARNICERÍA</text>
+  <text x="430" y="256" text-anchor="middle" fill="#092b79" font-family="Arial,sans-serif" font-size="43" font-weight="900">SALCHICHERÍA</text>
+  <rect x="75" y="300" width="650" height="220" rx="42" fill="#fff" stroke="#e40012" stroke-width="22"/>
+  <text x="400" y="468" text-anchor="middle" fill="#e40012" font-family="Georgia,serif" font-size="176" font-weight="900">PACO</text>
+  <rect x="76" y="560" width="648" height="77" fill="#092b79"/>
+  <text x="400" y="610" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="34" font-weight="700">Ternera y Cordero</text>
+</svg>
