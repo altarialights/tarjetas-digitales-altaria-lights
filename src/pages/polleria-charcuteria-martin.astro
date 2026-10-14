@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const phone = "+34615538112";
+const address = "Calle Corredera 65, 05100 Navaluenga, Ávila, España";
+const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+---
+
+<Layout title="Pollería Charcutería Martín · Navaluenga" description="Pollería Charcutería Martín. Sabor que llega más lejos. C/ Corredera 65, 05100 Navaluenga, Ávila. Teléfono 615 538 112." themeColor="#ed0b20">
+  <main class="page">
+    <article class="card">
+      <div class="hero">
+        <div class="hero-top"><span>DESDE NAVALUENGA PARA TI</span><span class="heart" aria-hidden="true">♥</span></div>
+        <img class="logo" src="/companies/polleria-martin/logo.png" alt="Logotipo de Pollería Martín, una gallina con embutidos" width="800" height="800" />
+        <p class="hero-tagline">Sabor que llega más lejos</p>
+      </div>
+
+      <div class="content">
+        <p class="eyebrow">POLLERÍA · CHARCUTERÍA</p>
+        <h1>Martín</h1>
+        <p class="lead">Productos de Navaluenga para disfrutar estés donde estés.</p>
+
+        <section class="delivery" aria-labelledby="delivery-title">
+          <span class="delivery-mark" aria-hidden="true">✦</span>
+          <div>
+            <h2 id="delivery-title">Envasados al vacío</h2>
+            <p>Para restauración y para enviar a tu familia, esté donde esté.</p>
+          </div>
+        </section>
+
+        <div class="details">
+          <div><span class="detail-label">TELÉFONO</span><a href={`tel:${phone}`}>615 538 112</a></div>
+          <div><span class="detail-label">ENCUÉNTRANOS</span><address>C/ Corredera 65<br />05100 Navaluenga · Ávila</address></div>
+        </div>
+
+        <nav class="actions" aria-label="Acciones de contacto">
+          <a class="action whatsapp" href="https://wa.me/34615538112" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="action call" href={`tel:${phone}`}>Llamar <span aria-hidden="true">↗</span></a>
+          <a class="action save" href="/polleria-charcuteria-martin.vcf" download="polleria-charcuteria-martin.vcf">Guardar contacto <span aria-hidden="true">↓</span></a>
+          <a class="action directions" href={directions} target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+      <div class="gingham" aria-hidden="true"></div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .page{min-height:100svh;display:grid;place-items:center;padding:clamp(16px,4vw,52px);background:#f2efea;color:#141313}
+  .card{width:min(100%,940px);display:grid;grid-template-columns:43% 57%;overflow:hidden;border-radius:26px;background:#fffefa;box-shadow:0 22px 75px #29100f29}
+  .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:660px;padding:30px 20px;background:radial-gradient(circle at 50% 40%,#fff 0%,#fbfaf6 64%,#f2ede7 100%);border-right:1px solid #eee8e0}.hero-top{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#e4071b;font:800 11px/1.2 Arial,sans-serif;letter-spacing:.13em}.heart{font-size:27px;letter-spacing:0}.logo{width:min(100%,350px);height:auto;aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 5px 2px #2018150a)}.hero-tagline{margin:-4px 0 20px;color:#e4071b;font:italic 27px/1.1 Georgia,serif;text-align:center}
+  .content{display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,5vw,58px)}.eyebrow{margin:0;color:#e4071b;font:800 11px/1.2 Arial,sans-serif;letter-spacing:.16em}h1{margin:6px 0 9px;font:900 clamp(56px,7vw,80px)/.95 Arial,sans-serif;letter-spacing:-.055em}.lead{margin:0;color:#55504d;font:19px/1.35 Georgia,serif}
+  .delivery{display:flex;align-items:flex-start;gap:17px;margin:30px 0;padding:19px 20px;border-left:4px solid #e4071b;background:#fff2ee}.delivery-mark{color:#e4071b;font-size:26px;line-height:1}h2{margin:0 0 5px;font:800 17px/1.2 Arial,sans-serif}.delivery p{margin:0;color:#463f3b;font:16px/1.35 Georgia,serif}
+  .details{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:30px}.detail-label{display:block;margin-bottom:7px;color:#a49b95;font:800 10px/1.2 Arial,sans-serif;letter-spacing:.13em}.details a,.details address{color:#171414;text-decoration:none;font:700 17px/1.35 Arial,sans-serif;font-style:normal}.details a:hover{text-decoration:underline}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:52px;padding:12px 15px;border-radius:11px;color:#fff;text-decoration:none;font:800 14px/1.2 Arial,sans-serif;transition:transform .2s,box-shadow .2s}.action:hover{transform:translateY(-2px);box-shadow:0 6px 18px #29100f29}.action span{font-size:20px;font-weight:400}.whatsapp{background:#16844c}.call{background:#e4071b}.save{background:#141313}.directions{background:#f7e4e0;color:#991421}.gingham{grid-column:1/-1;height:24px;background-color:#fff;background-image:linear-gradient(90deg,#f01929 50%,transparent 50%),linear-gradient(#f01929 50%,transparent 50%);background-size:24px 24px;opacity:.9}
+  @media(max-width:720px){.page{display:block;padding:0;background:#fffefa}.card{display:block;border-radius:0;box-shadow:none}.hero{min-height:0;padding:20px 20px 8px;border-right:0;border-bottom:1px solid #eee8e0}.logo{width:min(74vw,280px)}.hero-tagline{font-size:23px;margin:-8px 0 13px}.content{padding:30px 23px 36px}.delivery{margin:25px 0}.details{gap:15px}.gingham{height:18px;background-size:18px 18px}}
+  @media(max-width:370px){.details,.actions{grid-template-columns:1fr}.action{min-height:47px}}
+</style>
