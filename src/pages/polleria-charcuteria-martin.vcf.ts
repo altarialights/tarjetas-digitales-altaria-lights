@@ -25,7 +25,7 @@ function fold(line: string): string {
 }
 
 export const GET: APIRoute = async ({ site }) => {
-  const logo = join(process.cwd(), "public", "companies", "polleria-martin", "logo.png");
+  const logo = join(process.cwd(), "public", "companies", "polleria-martin", "logo-v2.png");
   const photo = await sharp(logo).resize(400, 400).flatten({ background: "#ffffff" }).jpeg({ quality: 82 }).toBuffer();
   const lines = [
     "BEGIN:VCARD",
