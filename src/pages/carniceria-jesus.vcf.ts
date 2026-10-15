@@ -49,7 +49,7 @@ export const GET: APIRoute = async ({ site }) => {
         "TEL;TYPE=CELL,VOICE:+34620417833",
         "EMAIL;TYPE=INTERNET,WORK:carniceriajesusnavaluenga@gmail.com",
         "ADR;TYPE=WORK:;;C/ Corredera\, 55;Navaluenga;Ávila;;España",
-        "item1.URL:https://www.facebook.com/people/Carniceria-Jesus-Navaluenga-Avila/100064058437123/",
+        "item1.URL:https://www.facebook.com/share/18qtEyNpws/?mibextid=wwXIfr",
         "item1.X-ABLabel:Facebook",
         "item2.URL:https://www.instagram.com/carniceriajesus_navaluenga/",
         "item2.X-ABLabel:Instagram",
