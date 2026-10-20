@@ -59,7 +59,7 @@ if (employee.website) {
     href: employee.website,
     label: "Web",
     lines: [employee.website.replace(/^https?:\/\//, "").replace(/\/$/, "")],
-    ariaLabel: "Visitar la web de Altaria Lights (se abre en una nueva pestaña)",
+    ariaLabel: `Visitar la web de ${employee.company} (se abre en una nueva pestaña)`,
     external: true,
   });
 }

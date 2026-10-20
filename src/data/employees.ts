@@ -44,6 +44,10 @@ export interface Employee {
     phone: string;
     /** Teléfono tal y como se muestra en pantalla. Si falta, se usa `phone`. */
     phoneDisplay?: string;
+    /** Clasificación del teléfono en la agenda; por defecto CELL. */
+    phoneType?: "CELL" | "WORK";
+    /** false para teléfonos sin WhatsApp confirmado; se ofrece correo en su lugar. */
+    whatsapp?: boolean;
 
     email: string;
     /** Correo personal adicional. */
@@ -67,6 +71,12 @@ export interface Employee {
 
     /** Ruta del logo dentro de /public. */
     companyLogo?: string;
+    /** Texto alternativo cuando la marca del logo difiere de la organización. */
+    companyLogoAlt?: string;
+    /** Nombre visible junto al logo, cuando este no identifica la organización. */
+    logoCaption?: string;
+    /** Incrusta también el logo en el VCF. */
+    includeLogoInVCard?: boolean;
     /** Usa una placa oscura para logos con texto blanco. */
     logoOnDark?: boolean;
 
@@ -86,6 +96,38 @@ export interface Employee {
 }
 
 export const employees: Employee[] = [
+    {
+        id: "armando-garcia-cuenca",
+        companySlug: "ayuntamiento-de-navaluenga",
+        company: "Ayuntamiento de Navaluenga",
+        firstName: "Armando",
+        lastName: "García Cuenca",
+        fullName: "Armando García Cuenca",
+        position: "Alcalde de Navaluenga · Diputado Provincial",
+        department: "Asuntos Europeos, Energía y Turismo",
+        phone: "+34920357102",
+        phoneDisplay: "920 357 102",
+        phoneType: "WORK",
+        whatsapp: false,
+        email: "agarcia@diputacionavila.es",
+        website: "https://aytonavaluenga.es/",
+        photo: "/employees/armando-garcia-cuenca.webp",
+        companyLogo: "/companies/ayuntamiento-de-navaluenga/partido-popular.svg",
+        companyLogoAlt: "Partido Popular",
+        logoCaption: "Ayuntamiento de Navaluenga",
+        includeLogoInVCard: true,
+        contactNotes:
+            "Alcalde de Navaluenga y Diputado Provincial. Asuntos Europeos, Energía y Turismo. Partido Popular.",
+        brand: {
+            color: "#08478f",
+            dark: "#062b62",
+            ink: "#073d83",
+            tint: "#dce9f7",
+            tintSoft: "#f0f5fb",
+            highlight: "#1763ad",
+            shadow: "6 43 98",
+        },
+    },
     {
         id: "alfredo-zamorano",
         companySlug: "de-zamorano",

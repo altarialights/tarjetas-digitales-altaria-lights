@@ -15,8 +15,15 @@ const { employee, delay = 0 } = Astro.props;
 <div class="actions">
   <div class="secondary reveal" style={`--d:${delay}ms`}>
     <a class="btn" href={phoneHref(employee)} aria-label={`Llamar a ${employee.fullName}`}>
+      {employee.whatsapp === false && <Icon name="phone" size={19} />}
       <span>Llamar</span>
     </a>
+    {employee.whatsapp === false ? (
+      <a class="btn" href={`mailto:${employee.email}`} aria-label={`Enviar un correo a ${employee.fullName}`}>
+        <Icon name="mail" size={19} />
+        <span>Correo</span>
+      </a>
+    ) : (
     <a
       class="btn"
       href={whatsappHref(employee)}
@@ -26,6 +33,7 @@ const { employee, delay = 0 } = Astro.props;
     >
       <span>WhatsApp</span>
     </a>
+    )}
   </div>
 
   <div class="reveal" style={`--d:${delay + 120}ms; --reveal: lift`}>

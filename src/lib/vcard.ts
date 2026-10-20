@@ -61,6 +61,19 @@ async function photoLine(e: Employee): Promise<string | undefined> {
   }
 }
 
+/** Logo opcional, convertido a PNG para agendas compatibles con LOGO. */
+async function logoLine(e: Employee): Promise<string | undefined> {
+  if (!e.includeLogoInVCard) return undefined;
+  const file = publicFile(e.companyLogo);
+  if (!file) return undefined;
+  const { default: sharp } = await import("sharp");
+  const png = await sharp(file, { density: 300 })
+    .resize({ width: 240 })
+    .png()
+    .toBuffer();
+  return `LOGO;ENCODING=b;TYPE=PNG:${png.toString("base64")}`;
+}
+
 export async function buildVCard(e: Employee, cardUrl?: string): Promise<string> {
   const lines: string[] = [
     "BEGIN:VCARD",
@@ -71,7 +84,7 @@ export async function buildVCard(e: Employee, cardUrl?: string): Promise<string>
     // ORG: Empresa;Departamento
     `ORG:${esc(e.company.trim())}${clean(e.department) ? `;${esc(clean(e.department))}` : ""}`,
     `TITLE:${esc(e.position.trim())}`,
-    `TEL;TYPE=CELL,VOICE:${e.phone.replace(/[^\d+]/g, "")}`,
+    `TEL;TYPE=${e.phoneType ?? "CELL"},VOICE:${e.phone.replace(/[^\d+]/g, "")}`,
     `EMAIL;TYPE=INTERNET,WORK:${esc(e.email.trim())}`,
   ];
 
@@ -108,6 +121,8 @@ export async function buildVCard(e: Employee, cardUrl?: string): Promise<string>
 
   const photo = await photoLine(e);
   if (photo) lines.push(photo);
+  const logo = await logoLine(e);
+  if (logo) lines.push(logo);
 
   lines.push(`UID:${e.companySlug}-${e.id}`, "END:VCARD");
 

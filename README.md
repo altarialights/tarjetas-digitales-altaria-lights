@@ -33,6 +33,22 @@ Los datos se validan en build (`src/lib/employees.ts`): un email inválido, un i
 Los campos opcionales (`department`, `address`, `address.extra`, `address.region`, `phoneDisplay`, `photo`) pueden omitirse: simplemente no se muestran.
 Si la foto aún no existe, se muestra un monograma con las iniciales (y el build avisa).
 
+## Ayuntamiento de Navaluenga
+
+- Web: `/ayuntamiento-de-navaluenga/armando-garcia-cuenca`.
+- Contacto: `/ayuntamiento-de-navaluenga/armando-garcia-cuenca.vcf`.
+- La tarjeta usa el mismo registro de `src/data/employees.ts`, componentes,
+  iconos y generador VCF que las demás tarjetas, con una paleta azul.
+- Organización: Ayuntamiento de Navaluenga. Contacto: Armando García Cuenca,
+  alcalde y diputado provincial. Datos transcritos de la tarjeta proporcionada.
+- Foto institucional: https://www.diputacionavila.es/fotos/la-diputacion/pleno/armando-garcia-cuenca.jpg
+- Logo: https://www.pp.es/wp-content/uploads/2022/08/logo-short.svg
+- `phoneType: "WORK"` identifica el fijo de trabajo; `whatsapp: false`
+  ofrece correo en lugar de atribuir WhatsApp a ese número.
+- `companyLogoAlt` y `logoCaption` identifican por separado el partido y el
+  Ayuntamiento. `includeLogoInVCard` incrusta el logo PNG además de la foto JPEG;
+  su visualización depende de la aplicación de contactos.
+
 ## Assets pendientes de sustituir
 
 | Asset | Ruta | Notas |
